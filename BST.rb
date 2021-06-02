@@ -23,7 +23,7 @@ class Bst
 
 			temp = @head
 			pre = nil
-			
+
 			while(temp)
 				pre = temp
 				if temp.value < value
@@ -32,8 +32,8 @@ class Bst
 					temp = temp.left
 				end
 			end
-			
-			
+
+
 			if pre.value >= value
 				pre.left = t
 			else
@@ -51,7 +51,7 @@ class Bst
 			prev = temp
 			temp = temp.right
 		end
-		
+
 		return prev.value
 	end
 
@@ -163,7 +163,7 @@ class Bst
 			end
 			if pre
 				pre.left = nil
-				
+
 			else
 				temp.right = nil
 			end
@@ -171,8 +171,8 @@ class Bst
 		end
 	end
 
-		
-	
+
+
 	def delete(value)
 		temp = @head
 		flag = 0
@@ -185,7 +185,7 @@ class Bst
 					else
 						prev.left = nil
 					end
-				
+
 				else
 					findMinDel(temp,prev)
 				end
@@ -226,7 +226,7 @@ class Bst
 		end
 
 	end
-	
+
 	def printAllPaths()
 		arr = []
 		traversePaths(@head,arr)
@@ -238,7 +238,7 @@ class Bst
 			file.puts strt.value
 			extract(strt.right,file)
 		end
-		
+
 	end
 
 	def saveToFile(file)
@@ -249,7 +249,7 @@ class Bst
 		file = File.open("data.txt","r")
 		contents = file.read.split("\n")
 		contents.each{|n| insert(n.to_i)}
-		
+
 	end
 end
 
@@ -257,7 +257,7 @@ q = -1
 tree = Bst.new()
 
 until q==0
-	
+
 	puts "Set of operations you can perform:"
 	puts "0. Quit"
 	puts "1. Insert"
@@ -271,11 +271,11 @@ until q==0
 	puts "9. Delete an element."
 	puts "10. Print all the path from root to all the leaves."
 	puts "11. Make tree from the file."
-	
+
 	q = gets.to_i
 
 	case q
-	
+
 	when 0
 		file = File.open(name, "a")
 		tree.saveToFile(file)
@@ -319,7 +319,7 @@ until q==0
 		puts "Enter file name"
 		name = gets.chomp
 		tree.fromFile(name)
-	
+
 	else
 		puts "Thanks for trying it out"
 		break
